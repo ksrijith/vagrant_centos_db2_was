@@ -24,10 +24,34 @@ Command to start Jenkins: sudo systemctl start jenkins.service
 Autostart: true  
 
 ## Instructions
-The DB2 Installer should be placed as the share/soft/db2/db2.tar.gz
-The file can be downloaded from:
-https://www.ibm.com/developerworks/downloads/im/db2express/
+1. Download and copy required installation files to required directory:
+    The DB2 Installer should be placed as the share/soft/db2/db2.tar.gz
+    The file can be downloaded from:
+    https://www.ibm.com/developerworks/downloads/im/db2express/
 
-Rename the downloaded file as db2.tar.gz
+    Download the following version:
+    ### DB2 Express-C for Linux x64
+    ### Version  11.1 
 
-Websphere, java and jenkins will be downloaded if not  found and copied to the share directory for future builds.
+    Select the following file to download:
+    ### DB2 Express-C
+    ### v11.1_linuxx64_expc.tar.gz  (680 MB)
+
+    Rename the downloaded file as db2.tar.gz  
+
+    Websphere, java and jenkins will be downloaded if not  found and copied to the share directory for future builds.   
+
+2. Install required vagrant plugins:  
+    a. vagrant-vbguest: `vagrant plugin install vagrant-vbguest`  
+    b. vagrant-reload: `vagrant plugin install vagrant-reload`  
+  
+3. Bring up vagrnat box:  
+    `vagrant up`
+
+# Issues
+Sometimes the `vagrant up` command fails on the first run. In that case please follow the steps below:  
+1. SSH: `vagrant ssh`
+2. Update yum cache: `sudo yum update`
+3. logout: `exit`
+4. Reload: `vagrant reload`
+5. Provision: `vagrant provision`
