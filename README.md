@@ -22,3 +22,12 @@ Jenkins Home: /var/jenkins_home
 Jenkins User: jenkins  
 Command to start Jenkins: sudo systemctl start jenkins.service  
 Autostart: true  
+
+## Instructions
+The DB2 Installer should be placed as the share/soft/db2/db2.tar.gz
+The file can be downloaded from:
+https://www.ibm.com/developerworks/downloads/im/db2express/
+
+Rename the downloaded file as db2.tar.gz
+
+Websphere, java and jenkins will be downloaded if not  found and copied to the share directory for future builds.
