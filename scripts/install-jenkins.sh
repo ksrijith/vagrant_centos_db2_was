@@ -1,4 +1,11 @@
 #!/bin/sh
+# wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+# rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+# yum install -y jenkins
+# 
+# systemctl start jenkins.service
+# systemctl enable jenkins.service
+
 . /etc/environment
 
 user=jenkins
@@ -16,6 +23,9 @@ export COPY_REFERENCE_FILE_LOG=$JENKINS_HOME/copy_reference_file.log
 
 groupadd -g ${gid} ${group}
 useradd -d "$JENKINS_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user}
+usermod -aG wheel ${user}
+echo "jenkins        ALL=(ALL)       NOPASSWD: ALL" > /etc/sudoers.d/jenkins
+
 mkdir -p /var/jenkins_home
 mkdir -p /usr/share/jenkins/ref/init.groovy.d
 TINI_VERSION=v0.16.1

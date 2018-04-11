@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, '--clipboard', 'bidirectional'] 
   end
 
-  config.vm.provision :shell, :path => "scripts/setupvbguest.sh"
+  #config.vm.provision :shell, :path => "scripts/setupvbguest.sh"
   config.vm.provision :reload
   config.vm.provision :shell, :path => "scripts/env.sh"
   config.vm.provision :shell, :path => "scripts/dependencies.sh"
