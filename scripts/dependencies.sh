@@ -1,2 +1,2 @@
 #!/bin/bash
-yum -y install wget unzip git curl
+yum -y install wget unzip git curl zip
